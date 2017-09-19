@@ -1,0 +1,38 @@
+// declare any constants – these never change
+const int buttonPin = 2;
+int ledb = 3;
+int ledg = 4;
+
+// declare any variables
+int buttonState;
+
+void setup() {
+  // put your setup code here, to run once:
+
+  // set pin modes in setup
+  pinMode(buttonPin, INPUT);
+  pinMode(ledb, OUTPUT);
+  pinMode(ledg, OUTPUT);
+
+  // initialise serial communication in setup
+  Serial.begin(9600);
+
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  buttonState = digitalRead(buttonPin);
+
+  if (buttonState==1) {
+    digitalWrite(ledb,HIGH);
+    digitalWrite(ledg,LOW);
+  }
+
+  else {
+    digitalWrite(ledg,HIGH);
+    digitalWrite(ledb,LOW);
+  }
+
+  Serial.println(buttonState);
+
+}
